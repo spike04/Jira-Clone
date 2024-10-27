@@ -6,7 +6,7 @@ export default function Home() {
     <div className="p-8">
       <Input />
       <div className="p-4">
-        <Button>Primary</Button>
+        <Button size="xs">Primary123</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="destructive">Destructive</Button>
         <Button variant="ghost">Ghost</Button>
