@@ -1,19 +1,16 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { getCurrent } from '@/features/auth/actions'
+import { UserButton } from '@/features/auth/components/user-button'
+import { redirect } from 'next/navigation'
 
-export default function Home() {
+export default async function Home() {
+  const user = await getCurrent()
+
+  if (!user) redirect('/sign-in')
+
   return (
     <div className="p-8">
-      <Input />
-      <div className="p-4">
-        <Button size="xs">Primary123</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="muted">Muted</Button>
-        <Button variant="teritary">Teritary</Button>
-        <Button variant="outline">Outline</Button>
-      </div>
+      Only visible to authorized users.
+      <UserButton />
     </div>
   )
 }
